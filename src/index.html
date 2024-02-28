@@ -39,7 +39,16 @@
                 <button onclick="isPrime()">Check</button>
                 <label id="primeCheckResult"></label>  
             </section>           
-        </div>       
+        </div>      
+        <div class="column">
+            <section>
+                <h2>Caeser Cipher</h2>                
+                <label>text to test:</label>
+                <input id="Text: "/>
+                <button onclick="cipher()">Check</button>
+                <label id="cipher"></label>  
+            </section>           
+        </div>        
      </div>
     
    
@@ -60,6 +69,14 @@
             const response = await fetch("???" + n);
             const result = await response.json();
             document.getElementById("primeCheckResult").innerText = result;
+        }
+
+        async function cipher(){
+            const numberToTest = document.getElementById("textToCipher");
+            let plainText = numberToTest.value;
+            const response = await fetch("https://ciphers-service-mbarrant.onrender.com/ciphers/")
+            const final = await response.json();
+            document.getElementById("cipher").innerText = final;
         }
     </script>
 </body>
